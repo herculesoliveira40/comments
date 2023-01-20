@@ -13,7 +13,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // true if the user is authorized to make this request
     }
 
     /**
@@ -24,7 +24,20 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255|min:3',
+            'email' => 'required|unique:users',
+            'password' => 'required|string|max:255|min:4',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'O campo nome é obrigatorio',
+            'email.required' => 'O campo e-mail é obrigatorio',
+            'email.unique' => 'e-mail já utilizado, tente outro',
+            'password.required' => 'O campo Senha é obrigatorio',
+
         ];
     }
 }

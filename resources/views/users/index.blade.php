@@ -1,10 +1,12 @@
-Listagem de Usuarios
+@extends('layouts.main')
 
+@section('content')
+    Listagem de Usuarios
 
-@foreach ($users as $user)
-
-    <li>
-       {{ $user }}
-    </li>    
-
-@endforeach
+    <a href="{{ route('users.create') }}"> +</a>
+    @foreach ($users as $user)
+        <li>
+            {{ $user }}
+        </li>
+    @endforeach
+@endsection
