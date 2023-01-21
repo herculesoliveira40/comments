@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('description');
+            $table->boolean('visible')->default(true);
+            $table->foreignId('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
