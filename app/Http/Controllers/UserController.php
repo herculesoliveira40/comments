@@ -9,35 +9,67 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
         $users  = User::get();
         // dd($users);
 
         return view('users.index', compact('users'));
-  
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $user = User::findOrFail($id);
 
         return view('users.show', compact('user'));
     }
 
 
-    public function create() {
+    public function create()
+    {
 
         return view('users.create');
     }
 
-    public function store(StoreUserRequest $request) {
-        
+
+    public function store(StoreUserRequest $request)
+    {
+
         $data = $request->all();
         $data['password'] = Hash::make($request->password);
 
         User::create($data);
-       //dd($request->all());
+        //dd($request->all());
 
-       return redirect()->route('users.index');
+        return redirect()->route('users.index');
+    }
+
+
+    public function edit($id)
+    {
+
+        $user = User::findOrFail($id);
+
+        return view('users.edit', compact('user'));
+    }
+
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+        $data['password'] = Hash::make($request->password);
+        User::findOrFail($request->id)->update($data);
+      //  dd($data);
+    }
+
+    
+    public function destroy(Request $request, $id)
+    {
+        $id = $request['index_id'];
+         dd('teste',$id);
+        User::findOrFail($id)->delete();
+
+      //  return redirect('/users/dashboard')->with('mensagem', 'Usuario deletado com Sucesso!'); 
     }
 }
