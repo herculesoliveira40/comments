@@ -16,11 +16,12 @@ class CommentController extends Controller
         $this->user = $user; 
     }
 
-    public function index($userId) {
+    public function index(Request $request, $userId) {
         $user = $this->user->find($userId);
 
-        $comment = $user->comments()->get();
-
+        $comment = $user->comments()
+        ->where('description', 'LIKE', "%{$request->search}%")
+        ->get();
         return view('users.comments.index', compact('user', 'comment'));
     }
 
@@ -34,5 +35,34 @@ class CommentController extends Controller
     }
 
 
-    
+    public function store(Request $request, $userId) {
+        $user = $this->user->find($userId);
+        $user->comments()->create([
+            'description' => $request->description,
+            'visible' => isset($request->visible),
+            'user_id' => $user,
+       ]);
+      // dd($request->all());
+        return redirect()->route('comments.user.index', $user->id);
+    }
+
+
+    public function edit($userId, $id) {
+        $comment = $this->comment->find($id);
+
+        $user = $comment->user;
+
+        return view('users.comments.edit', compact('user', 'comment'));
+    }
+
+
+    public function update(Request $request, $id) {
+        $comment = $this->comment->find($id);
+        $comment->update([
+            'description' => $request->description,
+            'visible' => isset($request->visible),
+       ]);
+      // dd($request->all());
+        return redirect()->route('comments.user.index', $comment->user_id);
+    }
 }

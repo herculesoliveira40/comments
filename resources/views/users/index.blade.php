@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', "users ")
 
 @section('content')
     <h1>
@@ -30,6 +31,13 @@
                 @include('helpers.delete_modal')
             </form>
             <a href="{{ route('comments.user.index', $user->id) }}"> C </a>
+           <p> Quantidade {{ $user->commentsUser->count() }}</p>
         </li>
-    @endforeach
+    @endforeach 
+
+    <div> 
+        {{ $users->appends([
+            'search' => request()->get('search', '')
+        ])->links() }}    
+    </div>    
 @endsection

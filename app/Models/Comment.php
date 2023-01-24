@@ -15,7 +15,7 @@ class Comment extends Model
     ];
 
     protected $casts = [
-        'visible' => 'bollean'
+        'visible' => 'boolean',
     ];
 
     public function user() {

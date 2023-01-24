@@ -8,7 +8,7 @@
 
     @include('helpers.alert_error')
 
-    <form action="{{ route('comments.store') }}" method="post">
+    <form action="{{ route('comments.store', $user->id) }}" method="post">
         @include('users.comments._partials.form')
 
     </form>
