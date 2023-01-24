@@ -30,8 +30,9 @@
                 @method('DELETE')
                 @include('helpers.delete_modal')
             </form>
-            <a href="{{ route('comments.user.index', $user->id) }}"> C </a>
-           <p> Quantidade {{ $user->commentsUser->count() }}</p>
+            <a href="{{ route('comments.user.index', $user->id) }}"> 
+                Quantidade {{ $user->commentsUser->count() }}
+            </a>
         </li>
     @endforeach 
 

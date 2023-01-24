@@ -19,7 +19,7 @@ class CommentController extends Controller
     public function index(Request $request, $userId) {
         $user = $this->user->find($userId);
 
-        $comment = $user->comments()
+        $comment = $user->commentsUser()
         ->where('description', 'LIKE', "%{$request->search}%")
         ->get();
         return view('users.comments.index', compact('user', 'comment'));
@@ -29,7 +29,7 @@ class CommentController extends Controller
     public function create($userId) {
         $user = $this->user->find($userId);
 
-        $comment = $user->comments()->get();
+        $comment = $user->commentsUser()->get();
 
         return view('users.comments.create', compact('user'));
     }
@@ -37,7 +37,7 @@ class CommentController extends Controller
 
     public function store(Request $request, $userId) {
         $user = $this->user->find($userId);
-        $user->comments()->create([
+        $user->commentsUser()->create([
             'description' => $request->description,
             'visible' => isset($request->visible),
             'user_id' => $user,
