@@ -17,4 +17,8 @@ class Comment extends Model
     protected $casts = [
         'visible' => 'bollean'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

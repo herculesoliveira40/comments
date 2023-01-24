@@ -29,7 +29,7 @@
                 @method('DELETE')
                 @include('helpers.delete_modal')
             </form>
-
+            <a href="{{ route('comments.user.index', $user->id) }}"> C </a>
         </li>
     @endforeach
 @endsection

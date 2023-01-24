@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Edit')
+@section('title', "Edit {$user->id }")
 
 @section('content')
     Edit User:
