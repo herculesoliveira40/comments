@@ -39,6 +39,6 @@
     <div> 
         {{ $users->appends([
             'search' => request()->get('search', '')
-        ])->links() }}    
+        ])->links('pagination::bootstrap-5') }}   <!-- underfly OR Provider= Paginator::useBootstrapFive(); -->  
     </div>    
 @endsection
