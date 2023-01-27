@@ -13,6 +13,7 @@
     <form action="{{ route('comments.user.index', $user->id)}}" method="get"> 
         <input type="text" name="search" placeholder="Comment" >
         <button> Pesquisar </button>
+        <h3>Buscar por: {{request()->input('search')}}</h3>
     </form>
     
     @foreach ($comment as $commentUser)

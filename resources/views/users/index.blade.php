@@ -10,6 +10,7 @@
     <form action="{{ route('users.index')}}" method="get"> 
         <input type="text" name="search" placeholder="Name or email of Search" >
         <button> Pesquisar </button>
+        <h3>Buscar por: {{request()->input('search')}}</h3>
     </form>
     
     @foreach ($users as $user)
