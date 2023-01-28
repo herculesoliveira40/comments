@@ -25,13 +25,19 @@
             aria-controls="offcanvasExample">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-text" aria-current="page">
+            <!-- Login -->
+            Login
+        </a>
     </div>
 </nav>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        
     </div>
+    
     <div class="offcanvas-body">
         <div>
             Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
@@ -57,7 +63,7 @@
     </div>
 </main> 
 <footer >
-    <p class="text-center bg-light text-info"> 2022 <a href="https://github.com/herculesoliveira40" target="_blank"> Shelby &copy;</a> </strong> </p>
+    <p class="text-center bg-light text-info"> 2023 &copy; <a href="https://github.com/herculesoliveira40" target="_blank"> <i class="bi bi-github"></i> </a> </strong> </p>
 </footer>
 </body>
 <script type="text/javascript" src="/js/script_modal.js"></script>
