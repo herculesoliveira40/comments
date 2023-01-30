@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\{Comment, User};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 
 class CommentController extends Controller
 {
@@ -23,6 +24,22 @@ class CommentController extends Controller
         ->where('description', 'LIKE', "%{$request->search}%")
         ->get();
         return view('users.comments.index', compact('user', 'comment'));
+    }
+
+
+    public function al() {
+        $comments = Comment::all();
+        return Blade::render(
+            '
+                <ul>
+                    @foreach ($comments as $comment)
+                        <li> {{ $comment }} </li>
+                    @endforeach
+                </ul>
+            ',[ 'comments' => $comments]);
+
+
+      //  return view('users.comments.al', compact('comments'));
     }
 
 

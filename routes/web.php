@@ -35,5 +35,6 @@ Route::get('/users/{user}/comments/{id}/edit', [CommentController::class, 'edit'
 Route::put('/comments/update/{id}', [CommentController::class, 'update'])->name('comments.update');
 
 Route::controller(CommentController::class)->group(function () {
-    Route::get('/comments','index')->name('comments.index');
+   // Route::get('/comments','index')->name('comments.index');
+    Route::get('/comments','al')->name('comments.al');
 });
