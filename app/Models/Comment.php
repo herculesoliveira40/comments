@@ -21,4 +21,17 @@ class Comment extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function getComments(string | null $search = '' ) {
+        $comments = $this->where(function ($query) use ($search) {
+            if($search) {
+                $query->where('description', 'LIKE', "%{$search}%");
+               // $query->orwhere('title', $search);
+            }
+        })
+       // ->with('user')
+        ->get();
+
+        return $comments;
+    }
 }

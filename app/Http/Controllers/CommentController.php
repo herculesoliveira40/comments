@@ -27,22 +27,25 @@ class CommentController extends Controller
     }
 
 
-    public function al() {
-        $comments = Comment::all();
-        return Blade::render(
-            '
-            @extends("layouts.main")
-            @section("content")
-                <ul>
-                    @foreach ($comments as $comment)
-                        <li> {{ $comment }} </li>
-                    @endforeach
-                </ul>
-            @endsection
-            ',[ 'comments' => $comments]);
+    public function al(Request $request) {
+        // $comments = Comment::all();
+        // return Blade::render(
+        //     '
+        //     @extends("layouts.main")
+        //     @section("content")
+        //         <ul>
+        //             @foreach ($comments as $comment)
+        //                 <li> {{ $comment }} </li>
+        //             @endforeach
+        //         </ul>
+        //     @endsection
+        //     ',[ 'comments' => $comments]);
 
+        $search = $request->search;
+        $comments = $this->comment
+        ->getComments(search: $request->search ?? '');
 
-      //  return view('users.comments.al', compact('comments'));
+        return view('users.comments.al', compact('comments'));
     }
 
 
