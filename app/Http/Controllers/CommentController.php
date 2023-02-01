@@ -31,11 +31,14 @@ class CommentController extends Controller
         $comments = Comment::all();
         return Blade::render(
             '
+            @extends("layouts.main")
+            @section("content")
                 <ul>
                     @foreach ($comments as $comment)
                         <li> {{ $comment }} </li>
                     @endforeach
                 </ul>
+            @endsection
             ',[ 'comments' => $comments]);
 
 
