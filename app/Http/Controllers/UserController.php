@@ -6,6 +6,8 @@ use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 
 class UserController extends Controller
 {
@@ -78,5 +80,33 @@ class UserController extends Controller
         User::findOrFail($id)->delete();
 
         //  return redirect('/users/dashboard')->with('mensagem', 'Usuario deletado com Sucesso!'); 
+    }
+
+    public function login()
+    {
+        return view('users.login');
+    }
+
+    public function auth(Request $request)
+    {
+
+        $data =  $request->all();
+        $remmenber =  isset($data['lembrar']) ? true : false;
+
+        if (FacadesAuth::attempt(['email' => $data['email'], 'password' => $data['password']], $remmenber)) {
+            $us = auth()->user();
+            //dd($us['name']);
+            return redirect('/comments')->with('mensagem', 'Olá: ' . $us['name'] . ' Perfil: ' . $us['profile']);
+        } 
+        else 
+        {
+            return redirect('/login')->with('alerta', 'E-mail ou Senha incorreta');
+        }
+    }
+
+    public function logout()
+    {
+        FacadesAuth::logout();
+        return redirect('/login')->with('alerta', 'Logout !');
     }
 }

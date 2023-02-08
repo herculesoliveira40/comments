@@ -27,7 +27,7 @@
         </button>
         <a class="navbar-text" aria-current="page">
             <!-- Login -->
-            Login
+            @include('helpers.modal')
         </a>
     </div>
 </nav>

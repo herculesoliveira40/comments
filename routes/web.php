@@ -37,4 +37,11 @@ Route::put('/comments/update/{id}', [CommentController::class, 'update'])->name(
 Route::controller(CommentController::class)->group(function () {
    // Route::get('/comments','index')->name('comments.index');
     Route::get('/comments','al')->name('comments.al');
+    
 });
+
+Route::get('/register', [UserController::class, 'create']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login/auth', [UserController::class, 'auth'])->name('usuario.auth');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout'); // Alias Route
+
