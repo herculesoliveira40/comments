@@ -4,12 +4,12 @@
 
 @section('content')
 
-<nav aria-label="breadcrumb">
+{{-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/users/dashboard"> <i class="bi bi-speedometer"></i> Usuarios </a></li>
     <li class="breadcrumb-item active" aria-current="page"> Cadastrar Usuario</li>
   </ol>
-</nav>
+</nav> --}}
 <h1>Login Usuario</h1>
 <div id="event-create-container" class="col-md-6 offset-md-3">
 
