@@ -19,16 +19,23 @@ Editar as variaveis do arquivo /.env de acordo com a sua configuração do seu b
 DB_USERNAME=root
 DB_PASSWORD=1234
 
-## *IDE terminal Comand:  
+## *IDE terminal Comand: 
 
-php artisan migrate:fresh --seed
+```sh
+    composer install
+```
 
-php artisan serve
+```sh
+    php artisan migrate:fresh --seed
+```
 
+```sh
+    php artisan serve
+```
 
 ## * Utilizar login admin do UserSeeder já criado, para ter acesso total: 
-e-mail: admin@admin.com
-senha: admin
+    e-mail: admin@admin.com
+    senha: admin
 
 ## License
 
