@@ -107,6 +107,7 @@ class UserController extends Controller
     public function logout()
     {
         FacadesAuth::logout();
+        
         return redirect('/login')->with('alerta', 'Logout !');
     }
 }
