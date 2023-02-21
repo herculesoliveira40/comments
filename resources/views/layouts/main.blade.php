@@ -48,7 +48,7 @@
             </div>
             <div class="dropdown mt-3">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    Dropdown button
+                    Menu Dropdown button
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/users"> Users </a></li>

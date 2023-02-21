@@ -8,7 +8,7 @@
         <form action="{{ route('comments.al') }}" method="get">
             <input type="text" name="search" placeholder="Comment">
             <button> Pesquisar </button>
-            <h3>Buscar por: {{ request()->input('search') }}</h3>
+            <h3 class="text-warning">Buscar por: {{ request()->input('search') }}</h3>
         </form>
     </div>
     <table class="table table-striped">
