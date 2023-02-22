@@ -7,7 +7,7 @@
     <div class="container">
         <form action="{{ route('comments.al') }}" method="get">
             <input type="text" name="search" placeholder="Comment">
-            <button> Pesquisar </button>
+            <button class="btn btn-outline-success"> Pesquisar <i class="bi bi-search"></i> </button>
             <h3 class="text-warning">Buscar por: {{ request()->input('search') }}</h3>
         </form>
     </div>
