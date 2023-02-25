@@ -4,7 +4,7 @@
 
 @section('content')
 
-    create Comment
+    Create Comment
 
     @include('helpers.alert_error')
 

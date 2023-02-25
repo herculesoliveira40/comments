@@ -4,7 +4,7 @@
 
 @section('content')
 
-    create
+    Create User
 
     @include('helpers.alert_error')
 
