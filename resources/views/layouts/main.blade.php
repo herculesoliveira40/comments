@@ -44,8 +44,7 @@
         
         <div class="offcanvas-body">
             <div>
-                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
-                etc.
+                CRUD User and comments
             </div>
             <div class="dropdown mt-3">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
